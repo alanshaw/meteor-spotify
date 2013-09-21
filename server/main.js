@@ -14,6 +14,7 @@ Meteor.setInterval(function () {
       
       if (!info) {
         Status.insert({song: "Nothing", percent: 0})
+        info = Status.findOne()
       }
       
       if (stdin.indexOf("stopped") !== -1) {

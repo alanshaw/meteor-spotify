@@ -13,5 +13,5 @@ Then open Spotify and start disc jockeying:
 
 ```sh
 meteor
-open http://loadlhost:3000
+open http://localhost:3000
 ```
