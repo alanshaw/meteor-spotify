@@ -1,0 +1,37 @@
+<head>
+  <title>Spotify DJ</title>
+</head>
+<body>
+  <h1>Spotify DJ</h1>
+  {{> songSel }}
+  {{> status }}
+  {{> playlist }}
+</body>
+
+<template name="songSel">
+  <div id="song-sel" class="input-group">
+    <input id="song" type="text" class="form-control" placeholder="Spotify song URL">
+    <span class="input-group-btn">
+      <button class="btn btn-default" type="button">Play!</button>
+    </span>
+  </div>
+</template>
+
+<template name="status">
+  {{#each info}}
+  <p>
+    <strong>Now playing:</strong> {{ song }}<br/>
+    <progress max="100" value="{{ percent }}"></progress>
+  </p>
+  {{/each}}
+</template>
+
+<template name="playlist">
+  <div>
+    <ul class="list-group">
+      {{#each songs}}
+      <li class="list-group-item">{{url}}</li>
+      {{/each}}
+    </ul>
+  </div>
+</template>

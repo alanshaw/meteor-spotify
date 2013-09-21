@@ -1,0 +1,10 @@
+body {
+  max-width: 30em;
+  margin: 0 auto;
+}
+#song-sel {
+  margin: 1em 0;
+}
+progress {
+  width: 100%;
+}
