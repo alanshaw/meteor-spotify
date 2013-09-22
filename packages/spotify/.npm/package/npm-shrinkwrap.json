@@ -1,0 +1,12 @@
+{
+  "dependencies": {
+    "spotify-node-applescript": {
+      "version": "0.2.1",
+      "dependencies": {
+        "applescript": {
+          "version": "0.2.1"
+        }
+      }
+    }
+  }
+}

@@ -4,26 +4,24 @@
 <body>
   <h1>Spotify DJ</h1>
   {{> songSel }}
-  {{> status }}
+  {{> current }}
   {{> playlist }}
 </body>
 
 <template name="songSel">
   <div id="song-sel" class="input-group">
-    <input id="song" type="text" class="form-control" placeholder="Spotify song URL">
+    <input id="song" type="text" class="form-control" placeholder="e.g. spotify:track:3AhXZa8sUQht0UEdBJgpGc">
     <span class="input-group-btn">
       <button class="btn btn-default" type="button">Play!</button>
     </span>
   </div>
 </template>
 
-<template name="status">
-  {{#each info}}
+<template name="current">
   <p>
-    <strong>Now playing:</strong> {{ song }}<br/>
-    <progress max="100" value="{{ percent }}"></progress>
+    <strong>Now playing:</strong> {{ track.artist }} - {{ track.name }}<br/>
+    <progress max="100" value="{{ state.percent }}"></progress>
   </p>
-  {{/each}}
 </template>
 
 <template name="playlist">

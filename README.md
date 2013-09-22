@@ -1,15 +1,18 @@
 Meteor Spotify DJ
 ===
 
-This is OSX only, since `spotify-cli` uses applescript to talk to Spotify.
+Create a webserver that allows people to enqueue tracks to be played in Spotify.
 
-You'll need to:
+This is OSX only, since `spotify-node-applescript` uses applescript to talk to Spotify.
 
-```sh
-npm install -g spotify-cli
-```
+Getting started
+---
 
-Then open Spotify and start disc jockeying:
+Install [Meteor](http://meteor.com).
+
+Open Spotify.
+
+Run in project directory:
 
 ```sh
 meteor

@@ -1,45 +1,20 @@
-var childProc = Npm.require("child_process")
-var Fiber = Npm.require("fibers")
-
 Meteor.setInterval(function () {
-  console.log("Polling for status")
-  
-  childProc.exec("spotify status", function (er, stdin, stder) {
-    if (er) return console.error(er)
-    
-    console.log(stdin, stder)
-    
-    Fiber(function () {
-      var info = Status.findOne()
-      
-      if (!info) {
-        Status.insert({song: "Nothing", percent: 0})
-        info = Status.findOne()
-      }
-      
-      if (stdin.indexOf("stopped") !== -1) {
-        console.log("Stopped!")
-        
-        info.song = "Nothing"
-        info.percent = 0
-        
-        return Status.update(info._id, info)
-      }
-      
-      if (stder.indexOf("playing") !== -1 || stder.indexOf("paused") !== -1) {
-        
-        var percent = (/] (\d+)%/).exec(stdin)[1]
-        var song = (/: (.+)/g).exec(stder.split("\n")[1])[1]
-        
-        console.log("Percent is now:", percent)
-        console.log("Song is now:", song)
-        
-        info.song = song
-        info.percent = percent
-        
-        return Status.update(info._id, info)
-      }
-      
-    }).run()
-  })
-}, 5000)
+  var state = State.findOne()
+    , s = spotify.getState()
+    , track = Track.findOne()
+    , t = spotify.getTrack()
+
+  track ? Track.update(track._id, t) : Track.insert(t)
+
+  s.percent = Math.round((s.position / t.duration) * 100)
+
+  state ? State.update(state._id, s) : State.insert(s)
+
+  if (s.percent > 99) {
+    var next = Playlist.pop()
+    if (next) {
+      spotify.playTrack(next.url)
+    }
+  }
+
+}, 500)

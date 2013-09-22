@@ -1,8 +1,11 @@
 function addSong () {
-  var url = $("#song").val()
+  var song = $("#song")
+    , url = song.val()
+
   if (!url) return console.warn("Not adding empty URL")
-  console.log("Adding song", url)
-  Songs.insert({url: url})
+
+  Playlist.insert({url: url})
+  song.val("")
 }
 
 Template.songSel.events({
@@ -16,9 +19,13 @@ Template.songSel.events({
 })
 
 Template.playlist.songs = function () {
-  return Songs.find()
+  return Playlist.findByTimestampAsc()
 }
 
-Template.status.info = function () {
-  return Status.find()
+Template.current.track = function () {
+  return Track.findOne()
+}
+
+Template.current.state = function () {
+  return State.findOne()
 }
