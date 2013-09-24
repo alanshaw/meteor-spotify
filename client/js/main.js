@@ -8,6 +8,17 @@ function addSong () {
   song.val("")
 }
 
+Template.playPause.events({
+  "click .play": function (e) {
+    e.preventDefault()
+    Meteor.call("play")
+  },
+  "click .pause": function (e) {
+    e.preventDefault()
+    Meteor.call("pause")
+  }
+})
+
 Template.songSel.events({
   "click button": addSong,
   "keypress input": function (e) {

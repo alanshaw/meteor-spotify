@@ -1,12 +1,21 @@
 <head>
+  <meta charset="utf-8">
   <title>Spotify DJ</title>
 </head>
 <body>
-  <h1>Spotify DJ</h1>
+  <h1><i class="glyphicon glyphicon-music"></i> Spotify DJ</h1>
+  {{> playPause }}
   {{> songSel }}
   {{> current }}
   {{> playlist }}
 </body>
+
+<template name="playPause">
+  <div id="play-pause">
+    <a href="#" class="play glyphicon glyphicon-play"></a>
+    <a href="#" class="pause glyphicon glyphicon-pause"></a>
+  </div>
+</template>
 
 <template name="songSel">
   <div id="song-sel" class="input-group">

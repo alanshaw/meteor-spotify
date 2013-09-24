@@ -18,3 +18,5 @@ Meteor.setInterval(function () {
   }
 
 }, 500)
+
+Meteor.methods({play: spotify.play, pause: spotify.pause})

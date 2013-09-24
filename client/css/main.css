@@ -8,3 +8,14 @@ body {
 progress {
   width: 100%;
 }
+#play-pause {
+  float: right;
+  margin-top: -3em;
+}
+#play-pause a {
+  font-size: 24px;
+}
+#play-pause a:hover, #play-pause a:focus {
+  text-decoration: none;
+  outline: 0;
+}
