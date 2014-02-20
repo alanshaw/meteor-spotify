@@ -40,9 +40,11 @@ progress {
 }
 #play-pause a:hover, #play-pause a:focus {
   text-decoration: none;
-  text-shadow: none;
   outline: 0;
+}
+#play-pause a:hover {
   color: #444;
+  text-shadow: none;
 }
 
 .form-control, .btn {
