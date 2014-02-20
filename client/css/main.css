@@ -51,3 +51,6 @@ progress {
 .form-control:hover, .btn:hover, .form-control:focus, .btn:focus {
   border-color: #444;
 }
+.list-group-item {
+  background-color: transparent;
+}
