@@ -1,6 +1,27 @@
+html, body {
+  height: 100%;
+}
 body {
   max-width: 30em;
   margin: 0 auto;
+  background: #b4d600;
+  background: -moz-radial-gradient(center, ellipse cover,  #b4d600 0%, #7eaf00 100%);
+  background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,#b4d600), color-stop(100%,#7eaf00));
+  background: -webkit-radial-gradient(center, ellipse cover,  #b4d600 0%,#7eaf00 100%);
+  background: -o-radial-gradient(center, ellipse cover,  #b4d600 0%,#7eaf00 100%);
+  background: -ms-radial-gradient(center, ellipse cover,  #b4d600 0%,#7eaf00 100%);
+  background: radial-gradient(ellipse at center,  #b4d600 0%,#7eaf00 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b4d600', endColorstr='#7eaf00',GradientType=1 );
+  color: #fff;
+  text-shadow: 0 0 2px #444;
+}
+h1 {
+  color: #444;
+  text-shadow: none;
+}
+h1 i {
+  color: #fff;
+  text-shadow: 0 0 2px #444;
 }
 #song-sel {
   margin: 1em 0;
@@ -13,9 +34,20 @@ progress {
   margin-top: -3em;
 }
 #play-pause a {
+  color: #fff;
   font-size: 24px;
+
 }
 #play-pause a:hover, #play-pause a:focus {
   text-decoration: none;
+  text-shadow: none;
   outline: 0;
+  color: #444;
+}
+
+.form-control, .btn {
+  border-color: #999;
+}
+.form-control:hover, .btn:hover, .form-control:focus, .btn:focus {
+  border-color: #444;
 }
