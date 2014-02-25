@@ -10,7 +10,7 @@ Meteor.setInterval(function () {
 
   state ? State.update(state._id, s) : State.insert(s)
 
-  if (s.percent > 99) {
+  if (s.percent > 98) {
     var next = Playlist.pop()
     if (next) {
       spotify.playTrack(next.url)
